@@ -32,12 +32,12 @@ class PublicReviewList(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         public_reviews = context['review'].filter(public=True)
-        context['review'] = public_reviews
+        context['review'] = public_reviews.order_by('-date')
 
         search_input = self.request.GET.get('search-area') or ''
         if search_input:
             context['review'] = context['review'].filter(
-                title__contains=search_input)
+                location__contains=search_input)
 
         context['search_input'] = search_input
         return context

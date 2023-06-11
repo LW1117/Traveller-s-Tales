@@ -15,9 +15,9 @@
         a {
             text-decoration: none;
             font-style: none;
-            
+
         }
-        
+
         .navbar-nav a {
             color: azure;
         }
@@ -44,10 +44,11 @@
             text-decoration: none;
             border: 1px solid #000;
             color: #000;
-            background-color: rgb(146, 182, 232);
+            background-color: azure;
             padding: 2px;
 
         }
+
         .review-list a {
             color: #000;
         }
@@ -55,6 +56,7 @@
         .review-list li {
             list-style: none;
         }
+
         .button {
             text-decoration: none;
             color: #000;
@@ -62,6 +64,7 @@
 
         .content-home {
             text-align: justify;
+            background-color: aliceblue;
         }
 
         .content-main {
@@ -73,17 +76,27 @@
             text-align: justify;
             padding: 20px;
 
-            
+
         }
+
         .form-group-custom input {
             text-decoration: none;
             width: 250px;
         }
-       
+
+        .review-detail {
+            text-align: justify;
+            background-color: aliceblue;
+        }
+        .bg-image {
+            background-image: url('https://cutewallpaper.org/27/background-wallpaper-from-around-the-world/98312228.jpg');
+            background-repeat: repeat;
+            background-size: cover;
+        }
     </style>
 </head>
 
-<body>
+<body class="bg-image">
     {% include 'base/navbar.html' %}
     <div class="content-main">
         {% block main %}

@@ -1,9 +1,12 @@
 <div class="navbar-main">
     <nav class="navbar navbar-expand-lg navbar-ligt bg-primary">
-        <div class="navbar-brand" href="#">{% if request.user.is_authenticated %}
+        <div class="navbar-brand" href="#">
+            {% if request.user.is_authenticated %}
             <span class="material-icons">
                 account_circle
             </span>Hi {{user}}
+            {% else %}
+            <span>Hi {{user}}</span>
             {% endif %}
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -23,7 +26,7 @@
                                 </span></a>
                         </div>
                         <div class="btn btn-primary">
-                            <a href="{% url 'reviewlist' %}">Reviews</a>
+                            <a href="{% url 'reviewlist' %}">Recent Reviews</a>
                         </div>
                         {% if request.user.is_authenticated %}
                         <div class="btn btn-primary">
