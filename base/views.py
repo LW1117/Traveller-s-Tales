@@ -112,13 +112,3 @@ class RegisterPage(FormView):
         if self.request.user.is_authenticated:
             return redirect('home')
         return super(RegisterPage, self).get(*args, **kwargs)
-    
-def create_location(request):
-    if request.method == 'POST':
-        form = LocationForm(request.POST)
-        if form.is_valid():
-            form.save()  # Save the form data to the database
-            return redirect('home')  # Redirect to a success page or another view
-    else:
-        form = LocationForm()
-    return render(request, 'base/create_location.html', {'form': form})
