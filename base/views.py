@@ -1,7 +1,5 @@
 from django.shortcuts import render, redirect
 
-from base.forms import LocationForm
-
 from .models import Location, Review
 
 from django.contrib.auth import login
