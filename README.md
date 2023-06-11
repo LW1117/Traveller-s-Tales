@@ -8,7 +8,7 @@ To ensure a clean and isolated installation of the project's dependencies, it is
 #### Open your terminal or command prompt.
 
 #### Navigate to the project's directory: 
-`cd <dir/root>.`
+`cd <dir/root>`
 
 #### Create a new virtual environment:
 
