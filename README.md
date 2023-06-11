@@ -8,30 +8,30 @@ To ensure a clean and isolated installation of the project's dependencies, it is
 #### Open your terminal or command prompt.
 
 #### Navigate to the project's directory: 
-cd <dir/root>.
+`cd <dir/root>.`
 
 #### Create a new virtual environment:
 
 On macOS and Linux:
-python3 -m venv venv
+`python3 -m venv venv`
 
 On Windows:
-python -m venv venv
+`python -m venv venv`
 
 #### Activate the virtual environment:
 
 On macOS and Linux:
-source venv/bin/activate
+`source venv/bin/activate`
 
 On Windows:
-venv\Scripts\activate
+`venv\Scripts\activate`
 
 ## Dependencies
 This project utilizes various dependencies, which are listed in the requirements.txt file. To install these dependencies, follow the steps below:
 Make sure you have activated the virtual environment as mentioned in the previous section.
 Run the following command to install the required dependencies:
 
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
 ## Usage
 Running the Server
@@ -41,6 +41,6 @@ Activate the virtual environment if it is not already activated (refer to the Vi
 
 Run the following command to start the server:
 
-python manage.py runserver
+`python manage.py runserver`
 
 Open your web browser and navigate to http://localhost:8000 to access the tourism destinations review website.
