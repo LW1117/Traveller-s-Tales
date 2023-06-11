@@ -1,0 +1,33 @@
+{% extends 'base/mainbase.html' %}
+{% block main %}
+{% if user.is_superuser %}
+<hr>
+<a class='btn btn-light' style="padding: 1px;;" href="/admin">
+    <h4>Go To Admin</h4>
+</a>
+<hr>
+{% endif %}
+
+<h1>Welcome to Traveller's Tales</h1>
+
+<div class="content-home">
+
+    <p>Discover your next adventure with us. Whether you're an avid traveler or simply seeking inspiration for your next
+        getaway, our tourism destination review website is here to ignite your wanderlust and guide you towards
+        unforgettable experiences.</p>
+    <p>At Traveller's Tales, we are passionate about exploring the world and sharing our insights with fellow
+        globetrotters. Our platform is a comprehensive hub of traveler-generated reviews, providing you with authentic
+        and diverse perspectives on destinations across the globe.</p>
+    <p>Start your journey today! Dive into our extensive collection of destination reviews, read captivating travel
+        stories, and get ready to immerse yourself in the beauty and diversity of our planet. Whether you're dreaming of
+        tropical paradises, cultural wonders, or adrenaline-pumping adventures, Traveller's Tales is your ultimate
+        companion on the road to discovery.</p>
+
+    <p>Embrace the world. Explore. Review. Repeat.</p>
+
+</div>
+
+
+
+
+{% endblock %}

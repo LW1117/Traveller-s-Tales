@@ -1,0 +1,13 @@
+{% extends 'base/mainbase.html' %}
+{%load crispy_forms_tags %}
+{% block main %}
+<div class="btn btn-primary" >
+    <a style="color: white;" href="{% url 'userreviewlist' %}">Back</a>
+</div>
+<form method="POST">
+    {% csrf_token%}
+    {{form|crispy}}
+    <input class="btn btn-success" type="submit" value="Submit">
+</form>
+
+{% endblock %}

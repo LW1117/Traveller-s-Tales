@@ -1,0 +1,42 @@
+{% extends 'base/mainbase.html' %}
+{% block main %}
+
+<h2>Your Reviews</h2>
+<div class="btn btn-light">
+    <a href="{% url 'reviewcreate' %}"><span class="material-icons">
+            add
+        </span></a>
+</div>
+{% for reviews in review %}
+<div class="review-list">
+<br>
+    <a href="{% url 'detail' reviews.id %}">
+        <h4>{{reviews}}</h4>
+    </a>
+    <li>{{reviews.date}}</li>
+    <br>
+    {% if reviews.public == True %}
+    <p style="float: right;" class="btn btn-light"><span class="material-icons">
+            visibility
+        </span></p>
+    {% else %}
+    <a style="float: right; size: 5px;" class="btn btn-secondary btn-lg"><span class="material-icons">
+            visibility_off
+        </span></a>
+    {% endif %}
+
+
+    <a " href=" {% url 'update' reviews.id %}" class="btn btn-light"><span class="material-icons">
+            upgrade
+        </span></a>
+    <a href="{% url 'delete' reviews.id %}" class="btn btn-danger"><span class="material-icons">
+            delete
+        </span></a>
+</div>
+{% empty %}
+<p>No reviews found.</p>
+
+
+{% endfor%}
+
+{% endblock %}

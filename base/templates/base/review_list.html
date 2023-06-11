@@ -1,0 +1,47 @@
+{% extends 'base/mainbase.html' %}
+{% block main %}
+
+<!--{% if request.user.is_authenticated %}
+<div class="button">
+<a href="{% url 'reviewcreate' %}"><span class="material-icons">
+    add
+    </span></a>
+</div>
+{% endif %}
+-->
+<form method="GET" style="display: flex;">
+    <div class="input-group mb-3">
+        <input type='text' name='search-area' placeholder="Search" value="{{search_input}}">
+        <div class="input-group-append">
+            <input class="btn btn-primary" type="submit" value='Search'>
+        </div>
+    </div>
+</form>
+
+<div class="review-list-public">
+    <div class="card-group">
+        {% for reviews in review%}
+
+        <div class="card">
+            <!-- <img src="..." class="card-img-top" alt="..."> -->
+            <div class="card-body">
+                <h5 class="card-title"><a href="{% url 'detail' reviews.id %}">{{reviews}}</a></h5>
+                <p class="card-text">-{{reviews.user}}<br>{{reviews.date}}<br>Rating : {{reviews.rating}}/5</p>
+                <a href="{% url 'detail' reviews.id %}" class="btn btn-primary">View</a>
+            </div>
+        </div>
+
+
+        {% endfor%}
+    </div>
+</div>
+{% endblock%}
+
+<div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title"><a href="{% url 'detail' reviews.id %}">{{reviews}}</a></h5>
+        <p class="card-text">{{reviews.date}} -{{reviews.user}} Rating : {{reviews.rating}}/5</p>
+        <a href="{% url 'detail' reviews.id %}"> class="btn btn-primary">Go somewhere</a>
+    </div>
+</div>

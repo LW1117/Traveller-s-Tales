@@ -1,0 +1,52 @@
+<div class="navbar-main">
+    <nav class="navbar navbar-expand-lg navbar-ligt bg-primary">
+        <div class="navbar-brand" href="#">{% if request.user.is_authenticated %}
+            <span class="material-icons">
+                account_circle
+            </span>Hi {{user}}
+            {% endif %}
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+            <div class="navbar-nav">
+                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                        <div class="btn btn-primary">
+
+
+                            <a href="{% url 'home' %}"><span class="material-icons">
+                                    home
+                                </span></a>
+                        </div>
+                        <div class="btn btn-primary">
+                            <a href="{% url 'reviewlist' %}">Reviews</a>
+                        </div>
+                        {% if request.user.is_authenticated %}
+                        <div class="btn btn-primary">
+
+                            <a href="{% url 'userreviewlist' %}">Your Reviews</a>
+                        </div>
+                        <div class="btn btn-primary">
+                            <a href="{% url 'logout' %}"> Logout</a>
+                        </div>
+
+                        {% else %}
+                        <div class="btn btn-primary">
+                            <a href="{% url 'login' %}"> Login</a>
+                        </div>
+                        <div class="btn btn-primary">
+                            <a href="{% url 'register' %}"> Register</a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+</nav>
+
+</div>
