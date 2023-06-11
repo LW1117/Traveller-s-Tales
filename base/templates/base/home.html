@@ -1,11 +1,11 @@
 {% extends 'base/mainbase.html' %}
 {% block main %}
 {% if user.is_superuser %}
-<hr>
+
 <a class='btn btn-light' style="padding: 1px;;" href="/admin">
-    <h4>Go To Admin</h4>
+    Go To Admin
 </a>
-<hr>
+
 {% endif %}
 
 <h1>Welcome to Traveller's Tales</h1>
