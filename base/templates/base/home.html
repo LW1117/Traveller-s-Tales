@@ -1,30 +1,22 @@
 {% extends 'base/mainbase.html' %}
 {% block main %}
-{% if user.is_superuser %}
 
-<a class='btn btn-light' style="padding: 1px;;" href="/admin">
-    Go To Admin
-</a>
 
-{% endif %}
 
-<h1>Welcome to Traveller's Tales</h1>
 
 <div class="content-home">
+    <h1>Welcome to Traveller's Tales</h1>
+    {% if user.is_authenticated %}
+    <a class='btn btn-light' style="padding: 1px;;" href="{% url 'reviewlist' %}">Click here to see reviews.</a><br>
+    {% if user.is_superuser %}
 
-    <p>Discover your next adventure with us. Whether you're an avid traveler or simply seeking inspiration for your next
-        getaway, our tourism destination review website is here to ignite your wanderlust and guide you towards
-        unforgettable experiences.</p>
-    <p>At Traveller's Tales, we are passionate about exploring the world and sharing our insights with fellow
-        globetrotters. Our platform is a comprehensive hub of traveler-generated reviews, providing you with authentic
-        and diverse perspectives on destinations across the globe.</p>
-    <p>Start your journey today! Dive into our extensive collection of destination reviews, read captivating travel
-        stories, and get ready to immerse yourself in the beauty and diversity of our planet. Whether you're dreaming of
-        tropical paradises, cultural wonders, or adrenaline-pumping adventures, Traveller's Tales is your ultimate
-        companion on the road to discovery.</p>
+    <a class='btn btn-light' style="padding: 1px;;" href="/admin">Click here to go to admin page.</a><br>
 
-    <p>Embrace the world. Explore. Review. Repeat.</p>
-
+    {% endif %}
+    <a class='btn btn-light' style="padding: 1px;;" href="{% url 'logout' %}">Click here to logout.</a><br>
+    {% else %}
+    <a class='btn btn-light' style="padding: 1px;;" href="{% url 'login' %}">Click here to login.</a><br>
+    {% endif %}
 </div>
 
 
