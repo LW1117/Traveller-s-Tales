@@ -10,7 +10,7 @@ def get_image_upload_path(instance, filename):
     model_name = instance._meta.model_name
 
     # Generate the upload path based on the ID
-    upload_path = os.path.join(app_name, model_name, str(instance.id), filename)
+    upload_path = os.path.join(app_name, "static", app_name , "images" , str(instance.id), filename)
 
     return upload_path
 

@@ -4,6 +4,10 @@ from .import views
 from django.contrib.staticfiles.storage import staticfiles_storage
 from django.views.generic.base import RedirectView
 
+from django.conf import settings
+from django.conf.urls.static import static
+
+
 urlpatterns = [
     path('',views.HomeView, name= 'home'),
     path('reviewlist/',views.PublicReviewList.as_view(), name= 'reviewlist'),
@@ -16,4 +20,5 @@ urlpatterns = [
     path('logout/',views.LogoutView.as_view(next_page='login'), name= 'logout'),
     path('register/',views.RegisterPage.as_view(),name='register'),
     path('reviews/location/<str:location>/', views.ListOfPublicReviews.as_view(), name='review_location'),
-]
+    path('')
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
