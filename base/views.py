@@ -1,7 +1,7 @@
 from collections import defaultdict
 from django.shortcuts import render, redirect
 
-from .models import Location, Review
+from .models import Review
 
 from django.contrib.auth import login
 
