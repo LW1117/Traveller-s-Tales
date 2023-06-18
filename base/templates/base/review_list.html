@@ -1,38 +1,24 @@
 {% extends 'base/mainbase.html' %}
 {% block main %}
-<h2>Recent Reviews</h2>
-<!--{% if request.user.is_authenticated %}
-<div class="button">
-<a href="{% url 'reviewcreate' %}"><span class="material-icons">
-    add
-    </span></a>
-</div>
-{% endif %}
--->
-<form method="GET" style="display: flex;">
-    <div class="input-group mb-3">
-        <input type='text' name='search-area' placeholder="Search" value="{{search_input}}">
-        <div class="input-group-append">
-            <input class="btn btn-primary" type="submit" value='Search'>
-        </div>
-    </div>
-</form>
+<h2>Locations</h2>
+
+
+
 
 <div class="review-list-public">
-    {% for reviews in review%}
-
-    <div class="card" style="background-color: beige; text-align: justify;">
-        <!-- <img src="..." class="card-img-top" alt="..."> -->
-        <div class="card-body" style="width: 18rem;">
-            
-            <h5 class="card-title"><a href="{% url 'detail' reviews.id %}">{{reviews}}</a></h5>
-            <p style="float: right;"> {{reviews.date}}</p>
-            <a href="{% url 'detail' reviews.id %}" class="btn btn-primary">View</a>
-        </div>
-    </div>
-
-
-    {% endfor%}
-
+    <div class="row row-cols-1 row-cols-md-2">
+    {% for location in locations %}
+    
+        <div class="col mb-4">
+          <div class="card">
+             <a href="{% url 'review_location' location %}"><div class="card-body" style="width: 18rem;">
+                <h5 class="card-title">
+                   {{ location }}
+                </h5>
+            </div></a>
+        </div></div>
+        
+    {% endfor %}</div>
 </div>
-{% endblock%}
+
+{% endblock %}

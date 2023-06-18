@@ -1,3 +1,4 @@
+from collections import defaultdict
 from django.shortcuts import render, redirect
 
 from .models import Location, Review
@@ -31,16 +32,34 @@ class PublicReviewList(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        public_reviews = context['review'].filter(public=True)
-        context['review'] = public_reviews.order_by('-date')
-
-        search_input = self.request.GET.get('search-area') or ''
-        if search_input:
-            context['review'] = context['review'].filter(
-                location__contains=search_input)
-
-        context['search_input'] = search_input
+        
+        
+        reviews = Review.objects.filter(public=True)
+        distinct_locations = reviews.order_by().values_list('location', flat=True).distinct()
+        
+        # Perform case-insensitive distinct filtering in Python
+        distinct_locations = [location.upper() for location in distinct_locations]
+        distinct_locations = list(set(distinct_locations))
+        
+        context['locations'] = distinct_locations
+        
         return context
+
+class ListOfPublicReviews(ListView):
+    model = Review
+    template_name = 'base/public_review_list.html'
+    context_object_name = 'reviews'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        location = self.kwargs['location']
+        context['location'] = location
+        return context
+
+    def get_queryset(self):
+        location = self.kwargs['location']  # Assumes the URL pattern captures the location
+        return Review.objects.filter(location__iexact=location)
+
 
 class ReviewList(LoginRequiredMixin,ListView):
     model = Review

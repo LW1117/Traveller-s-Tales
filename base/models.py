@@ -17,7 +17,7 @@ class Review(models.Model):
         return self.title
     
     class Meta:
-        order_with_respect_to = 'date'
+        ordering = ['date']
 
 class Location(models.Model):
     name = models.CharField(max_length=255)

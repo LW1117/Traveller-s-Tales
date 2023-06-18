@@ -1,0 +1,26 @@
+{% extends 'base/mainbase.html' %}
+{% block main %}
+
+
+    <h1>Reviews</h1>
+    <h2>Location: {{ location }}</h2>
+
+    <ul>
+        {% for review in reviews %}
+        <div class="card" style="background-color: beige; text-align: justify;">
+            <!-- <img src="..." class="card-img-top" alt="..."> -->
+            <div class="card-body" >
+            <li>{{ review.description }}</li>
+            <li>{{review.user}}</li>
+            <li style="float: right;">{{review.date}}</li>
+            </div>
+        </div>
+        {% empty %}
+        <div class="card" style="background-color: beige; text-align: justify;">
+            <li>No reviews found for this location.</li>
+        </div>
+        {% endfor %}
+    </ul>
+
+
+    {% endblock%}
