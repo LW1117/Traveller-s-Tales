@@ -84,7 +84,7 @@ class ReviewDetail(DetailView):
     
 class ReviewCreate(LoginRequiredMixin,CreateView):
     model = Review
-    fields = ['title','description','public','location','linktolocation']
+    fields = ['title','description','public','location','linktolocation','image','rating']
     success_url = reverse_lazy('userreviewlist')
 
     def form_valid(self, form):
@@ -93,7 +93,7 @@ class ReviewCreate(LoginRequiredMixin,CreateView):
     
 class ReviewUpdate(LoginRequiredMixin,UpdateView):
     model = Review
-    fields = ['title','description','public','location','linktolocation','rating']
+    fields = ['title','description','public','location','linktolocation','rating','image']
     success_url = reverse_lazy('userreviewlist')
     
 class ReviewDelete(LoginRequiredMixin,DeleteView):
