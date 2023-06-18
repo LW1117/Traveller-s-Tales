@@ -20,5 +20,4 @@ urlpatterns = [
     path('logout/',views.LogoutView.as_view(next_page='login'), name= 'logout'),
     path('register/',views.RegisterPage.as_view(),name='register'),
     path('reviews/location/<str:location>/', views.ListOfPublicReviews.as_view(), name='review_location'),
-    path('')
-]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -11,13 +11,13 @@
         <!-- <img src="..." class="card-img-top" alt="..."> -->
         <div class="card-body">
             <li>{{ review.description }}</li>
-            <li style="float: left;">{{review.user}}</li>
-            <li style="float: right;">{{review.date}}</li>
+            <li style="float: right;">{{review.date}}</li><br>
             {% if review.image %}
-            <li style="float: left;">{% load static %}
+            <li>{% load static %}
 
-                <img src="{{ review.image.url  }}" alt="My image">
+                <img src="{{ review.image.url  }}" width="600px" alt="My image">
             </li>
+            <li style="float: right;">{{review.user|upper}}</li>
             {% endif %}
         </div>
     </div>
