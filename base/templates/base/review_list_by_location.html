@@ -1,0 +1,17 @@
+<!-- review_list_by_location.html -->
+{% extends 'base/mainbase.html' %}
+
+{% block content %}
+    <h1>Reviews for Location</h1>
+    <h2>{{ location.reviewed_location }}</h2>
+
+    {% if reviews %}
+        <ul>
+            {% for review in reviews %}
+                <li>{{ review.title }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No reviews available for this location.</p>
+    {% endif %}
+{% endblock %}

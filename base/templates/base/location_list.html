@@ -1,0 +1,11 @@
+<!-- location_list.html -->
+{% extends 'base/mainbase.html' %}
+
+{% block content %}
+    <h1>Locations</h1>
+    <ul>
+        {% for location in locations %}
+            <li><a href="{% url 'review_list_by_location' location.id %}">{{ location }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
