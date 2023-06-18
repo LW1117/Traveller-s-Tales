@@ -1,0 +1,6 @@
+<ul>
+    {% for review in reviews %}
+      <li>{{ review.location__name }}: {{ review.total_reviews }}</li>
+    {% endfor %}
+  </ul>
+  
