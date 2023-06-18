@@ -18,32 +18,32 @@
             <div class="navbar-nav">
                 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                     <div class="btn-group mr-2" role="group" aria-label="First group">
-                        <div class="btn btn-primary">
+                        
 
 
-                            <a href="{% url 'home' %}"><span class="material-icons">
+                            <a href="{% url 'home' %}"><div class="btn btn-primary"><span class="material-icons">
                                     home
-                                </span></a>
-                        </div>
-                        <div class="btn btn-primary">
-                            <a href="{% url 'reviewlist' %}">Recent Reviews</a>
-                        </div>
+                                </span></div></a>
+                        
+                        
+                            <a href="{% url 'reviewlist' %}"><div class="btn btn-primary">Recent Reviews</div></a>
+                        
                         {% if request.user.is_authenticated %}
-                        <div class="btn btn-primary">
+                        
 
-                            <a href="{% url 'userreviewlist' %}">Your Reviews</a>
-                        </div>
-                        <div class="btn btn-primary">
-                            <a href="{% url 'logout' %}"> Logout</a>
-                        </div>
+                            <a href="{% url 'userreviewlist' %}"><div class="btn btn-primary">Your Reviews</div></a>
+                        
+                        
+                            <a href="{% url 'logout' %}"><div class="btn btn-primary"> Logout</div></a>
+                        
 
                         {% else %}
-                        <div class="btn btn-primary">
-                            <a href="{% url 'login' %}"> Login</a>
-                        </div>
-                        <div class="btn btn-primary">
-                            <a href="{% url 'register' %}"> Register</a>
-                        </div>
+                        
+                            <a href="{% url 'login' %}"><div class="btn btn-primary"> Login</div></a>
+                        
+                        
+                            <a href="{% url 'register' %}"><div class="btn btn-primary"> Register</div></a>
+                        
                         {% endif %}
                     </div>
                 </div>

@@ -2,11 +2,11 @@
 {% block main %}
 
 <h2>Your Reviews</h2>
-<div class="btn btn-light">
-    <a href="{% url 'reviewcreate' %}"><span class="material-icons">
+
+    <a href="{% url 'reviewcreate' %}"><div class="btn btn-light"><span class="material-icons">
             add
-        </span></a>
-</div>
+        </span></div></a>
+
 {% for reviews in review %}
 <div class="review-list">
 <br>
